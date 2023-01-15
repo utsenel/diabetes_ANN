@@ -6,6 +6,7 @@ import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
 
+
 # cd ~/appdata/local/programs/python/python311/scripts
 
 # ./streamlit run ~/Documents/Repo/diabetes-prediction/main.py
@@ -66,7 +67,7 @@ submitButton = form.form_submit_button(label = 'Predict')
 
 # Scale
 
-data = pd.read_csv('C:/Users/Sacma/AndroidStudioProjects/streamlit-model/diabetes.csv')
+data = pd.read_csv("diabetes.csv")
 
 X= data.drop(["Outcome"],axis=1)
 
@@ -82,7 +83,7 @@ if submitButton:
 
     with st.spinner('Predicting....'):
 
-        loaded_model = pickle.load(open('C:/Users/Sacma/AndroidStudioProjects/streamlit-model/model.sav', 'rb'))
+        loaded_model = pickle.load(open('model.sav', 'rb'))
 
         input_frame=pd.DataFrame(scaler.transform([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, Bmi, DiabetesPedigreeFunction, Age]]),
 
